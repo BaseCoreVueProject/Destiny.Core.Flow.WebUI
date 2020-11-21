@@ -44,6 +44,11 @@ export interface IMenu extends IEntity<string> {
   type: MenuEnum;
 
   /**
+   * 事件名
+   */
+  eventName: string;
+
+  /**
    * 子级
    */
   children: Array<IMenu>;
@@ -57,7 +62,7 @@ export enum MenuEnum {
   /**
    * 按钮
    */
-  Button = 5,
+  Function = 5,
 }
 
 export interface IMenuTableDto extends IMenu, IDescription {
@@ -73,7 +78,7 @@ export interface IMenuTableDto extends IMenu, IDescription {
 export class MenuDto implements IEntity<string> {
   id: string = Guid.EMPTY;
   name: string = "";
-  sort: number = 0;
+  sort!: number;
   path: string = "";
   parentId: string = Guid.EMPTY;
   component: string = "";
@@ -83,6 +88,9 @@ export class MenuDto implements IEntity<string> {
   depth: number = 0;
   // functionId: Array<string> = [];
   type: MenuEnum = MenuEnum.Menu;
+  layout: string = "";
+  isHide: boolean = false;
+  eventName: string = "";
 }
 
 /**

@@ -26,4 +26,15 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.ivu-table {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+.ivu-table-body {
+  overflow: hidden !important;
+}
+.ant-select-dropdown {
+  z-index: 16777271 !important;
+}
 </style>

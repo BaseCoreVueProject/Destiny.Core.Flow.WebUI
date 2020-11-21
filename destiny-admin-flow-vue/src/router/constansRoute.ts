@@ -21,7 +21,7 @@ export const constansRoute = [
     {
         path: '/callback',
         name: 'callback',
-        component: () => import("@/views/login-page/login-page.vue"),
+        component: () => import("@/views/callback-page/callback-page.vue"),
 
     },
     /**
@@ -39,7 +39,7 @@ export const constansRoute = [
     //  */
     {
         path: '/home',
-        name: '主页',
+        name: '首页',
         component: () => import("@/layout/layout.vue"),
         children: [
             {

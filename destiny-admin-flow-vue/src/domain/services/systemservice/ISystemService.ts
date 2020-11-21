@@ -1,7 +1,7 @@
+import { IAjaxResult, IServerPageReturn } from '@/shared/response';
 import { IAuditEntryOutputPageDto, IAuditEntryPropertyOutputPageDto, IAuditLogOutputPageDto } from '@/domain/entity/auditdto/auditDto';
 
 import { IPageRequest } from '@/shared/request';
-import { IServerPageReturn } from '@/shared/response';
 
 /**
  * 审计服务层接口定义(因为AuditService报错，所以无法使用这个名字。)

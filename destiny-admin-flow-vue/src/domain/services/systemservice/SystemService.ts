@@ -1,8 +1,8 @@
+import { AuditApi, SystemApi } from '@/domain/config/api';
+import { IAjaxResult, IServerPageReturn } from '@/shared/response';
 import { IAuditEntryOutputPageDto, IAuditEntryPropertyOutputPageDto, IAuditLogOutputPageDto } from '@/domain/entity/auditdto/auditDto';
 
-import { AuditApi } from '@/domain/config/api';
 import { IPageRequest } from '@/shared/request';
-import { IServerPageReturn } from '@/shared/response';
 import { ISystemService } from './ISystemService';
 import { MainManager } from '../main/main-manager';
 import { injectable } from 'inversify';

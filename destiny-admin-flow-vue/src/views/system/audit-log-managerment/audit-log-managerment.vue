@@ -1,46 +1,41 @@
 <template>
-  <section class="box">
+  <section>
     <div class="body">
-     
-      <Row>
-        <Collapse>
-          <Panel name="1">
-            查询面板
-            <p slot="content" >
-                <Form  inline  :label-width="120" :model="dynamicQuery" ref="formInline">
-                  <Row> 
-                      <Col span="6">
-                      <FormItem label="功能名：">
-                       <Input  v-model="dynamicQuery.functionName"   />
-        
-                        </FormItem>
-                      </Col>
-                       <Col span="6">
-                      <FormItem label="审计Url：" >
-                             <Input  v-model="dynamicQuery.action"   />
-                        </FormItem>
-                      </Col>
-                   
-               
-                  </Row>
-                    <FormItem >
-                          <Button type="primary" @click="search()">查询</Button>
-                    </FormItem>
-                </Form>
-            </p>
-          </Panel>
-        </Collapse>
-      </Row>
+      <my-search :fields="fields" @click="search" :likeValueFormat="likeValueFormat"></my-search>
       <div>
         <Card :dis-hover="true">
-        <Table :columns="columns" :data="auditLogTable" border stripe @on-select-cancel="CurrentRowEventCancel"    @on-select="CurrentRowEventArray">
-            
-        
+          <Table
+            :columns="columns"
+            :data="tableData"
+            border
+            stripe
+            @on-select-cancel="currentRowEventCancel"
+            @on-select="currentRowEventArray"
+          >
+            <!-- <template slot-scope="{ row }" slot="expand">
+              <table-expand-operate :row="row"></table-expand-operate>
+            </template> -->
+            <template slot-scope="{ row }" slot="operationType">
+              <Tag
+                v-if="row.operationType == operationType.Success"
+                color="primary"
+              >
+                成功
+              </Tag>
+              <Tag
+                v-else-if="row.operationType == operationType.Error"
+                color="error"
+              >
+                失败
+              </Tag>
+              <Tag v-else color="warning">
+                无
+              </Tag>
+            </template>
           </Table>
-      
         </Card>
       </div>
-      
+      <!-- <table-expand-operate ref="TableExpandOperateInfo"></table-expand-operate> -->
       <page-component
         ref="PageInfo"
         :total="total"
